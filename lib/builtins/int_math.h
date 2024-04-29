@@ -37,6 +37,7 @@
 #define CRT_INFINITY __builtin_huge_valf()
 #endif
 
+#ifndef __TINYC__
 #if defined(_MSC_VER) && !defined(__clang__)
 #define crt_isfinite(x) _finite((x))
 #define crt_isinf(x) !_finite((x))
@@ -60,6 +61,7 @@
 #define crt_isinf(x) __builtin_isinf((x))
 #define crt_isnan(x) __builtin_isnan((x))
 #endif /* _MSC_VER */
+#endif /* __TINYC__ */
 
 #if defined(_MSC_VER) && !defined(__clang__)
 #define crt_copysign(x, y) copysign((x), (y))

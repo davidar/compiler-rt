@@ -164,6 +164,7 @@ typedef union
     long double f;
 } long_double_bits;
 
+#ifndef __TINYC__
 #if __STDC_VERSION__ >= 199901L
 typedef float _Complex Fcomplex;
 typedef double _Complex Dcomplex;
@@ -181,5 +182,6 @@ typedef struct { long double real, imaginary; } Lcomplex;
 #define COMPLEX_REAL(x) (x).real
 #define COMPLEX_IMAGINARY(x) (x).imaginary
 #endif
+#endif /* __TINYC__ */
 #endif /* INT_TYPES_H */
 
